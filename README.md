@@ -8,9 +8,11 @@ CCD Viewer is a lightweight web application that parses and displays structured 
 - Parse and display document metadata (title, effective time, patient name, DOB, gender, filename).
 - Navigate between sections of the document; each section shows the number of entries.
 - View structured data in a responsive table with description, code, and code system.
-- Toggle between the structured view and the narrative (human‑readable) view for each section.
+- Toggle between the structured view and the narrative (human-readable) view for each section.
 - Inspect the raw XML snippet for each entry by clicking a magnifying glass icon.
 - Clean, responsive UI built with Bootstrap 5 and FontAwesome 6 icons loaded from CDN with valid SRI hashes.
+
+See `ROADMAP.md` for planned milestones toward v2.0.0.
 
 ## Quick start (Docker)
 
