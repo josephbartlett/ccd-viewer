@@ -1,0 +1,31 @@
+/* Custom styles for CCD Viewer */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.table-fixed tbody {
+    display: block;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.table-fixed thead, .table-fixed tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.xml-container {
+    height: 500px;
+    overflow-y: auto;
+    background-color: #fdfdfd;
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.highlight {
+    background-color: #fff3cd;
+}
