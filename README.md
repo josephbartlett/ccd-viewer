@@ -10,9 +10,10 @@ CCD Viewer is a lightweight web application that parses and displays structured 
 - View structured data in a responsive table with description, code, and code system.
 - Toggle between the structured view and the narrative (human-readable) view for each section.
 - Inspect the raw XML snippet for each entry by clicking a magnifying glass icon.
-- Clean, responsive UI built with Bootstrap 5 and FontAwesome 6 icons loaded from CDN with valid SRI hashes.
+- Clean, responsive UI built with Bootstrap 5 and FontAwesome 6 icons (served locally).
 
 See `ROADMAP.md` for planned milestones toward v2.0.0.
+See `CHANGELOG.md` for release notes.
 
 ## Quick start (Docker)
 
@@ -34,6 +35,7 @@ docker run -p 8080:80 \
 - Left column lists sections; click a section to load its details.
 - In the Structured tab, click the magnifying-glass button to show that entry’s XML in the right-hand pane (the first entry auto-loads).
 - Switch to the Narrative tab for the human-readable section text.
+- Copy or download the XML snippet using the buttons in the XML pane.
 
 ## Sample data
 

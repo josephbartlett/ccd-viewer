@@ -1,12 +1,12 @@
 # Roadmap
 
-Current: v1.0.0. Planned milestones leading to v2.0.0.
+Current: v1.1.0. Planned milestones leading to v2.0.0.
 
 ## v1.1.0 — Stability & UX polish
-- [ ] Add client-side validation (file size/type) with clear upload errors.
-- [ ] Persist uploaded filename and last-viewed section via query params/local storage.
-- [ ] Add "copy XML" and "download XML snippet" actions in the XML pane.
-- [ ] Improve empty/error states and add loading indicators during parse.
+- [x] Add client-side validation (file size/type) with clear upload errors.
+- [x] Persist uploaded filename and last-viewed section via query params/local storage.
+- [x] Add "copy XML" and "download XML snippet" actions in the XML pane.
+- [x] Improve empty/error states and add loading indicators during parse.
 
 ## v1.2.0 — Packaging & Ops
 - [ ] Ship local Bootstrap/FontAwesome assets with a toggle for CDN/local to avoid tracking-prevention blocks.
