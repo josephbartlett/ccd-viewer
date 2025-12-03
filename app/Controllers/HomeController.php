@@ -23,11 +23,41 @@ class HomeController
     public function upload(): void
     {
         if (!isset($_FILES['ccd_file']) || $_FILES['ccd_file']['error'] !== UPLOAD_ERR_OK) {
-            $error = 'Failed to upload file. Please try again.';
+            $code = $_FILES['ccd_file']['error'] ?? UPLOAD_ERR_NO_FILE;
+            $error = $this->uploadErrorMessage($code);
             $view = new View('home', ['error' => $error]);
             $view->render();
             return;
         }
+
+        $file = $_FILES['ccd_file'];
+        $maxSize = 10 * 1024 * 1024; // 10 MB
+        $allowedExt = ['xml', 'ccd', 'ccda'];
+        $name = $file['name'] ?? '';
+        $size = $file['size'] ?? 0;
+        $tmpPath = $file['tmp_name'] ?? '';
+
+        // Size check
+        if ($size > $maxSize || $size <= 0) {
+            $view = new View('home', ['error' => 'File is too large. Maximum allowed is 10 MB.']);
+            $view->render();
+            return;
+        }
+
+        // Extension check
+        $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+        if (!in_array($ext, $allowedExt, true)) {
+            $view = new View('home', ['error' => 'Invalid file type. Please upload a .xml, .ccd, or .ccda file.']);
+            $view->render();
+            return;
+        }
+
+        if (!is_uploaded_file($tmpPath)) {
+            $view = new View('home', ['error' => 'Failed to read uploaded file.']);
+            $view->render();
+            return;
+        }
+
         $uploadDir = __DIR__ . '/../../storage/uploads/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);

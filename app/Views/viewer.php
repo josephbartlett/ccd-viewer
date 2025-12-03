@@ -45,11 +45,20 @@
     </div>
     <div class="col-md-4 col-xl-4">
         <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa-solid fa-code me-1"></i>XML Snippet
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div><i class="fa-solid fa-code me-1"></i>XML Snippet</div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="XML actions">
+                    <button id="xml-copy-btn" type="button" class="btn btn-outline-secondary" title="Copy XML to clipboard">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                    <button id="xml-download-btn" type="button" class="btn btn-outline-secondary" title="Download XML snippet">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                </div>
             </div>
             <div class="card-body">
                 <div id="xml-container" class="xml-container"></div>
+                <div id="xml-status" class="form-text mt-2 text-muted"></div>
             </div>
         </div>
     </div>
@@ -58,5 +67,6 @@
 <script>
     // Pass CCD data to the client-side script (attach to window for reuse)
     window.CCD_VIEWER_DATA = <?php echo json_encode($ccd, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+    window.CCD_VIEWER_FILENAME = <?php echo json_encode($fileName, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
 </script>
 <script src="/assets/js/viewer.js"></script>

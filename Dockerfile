@@ -12,6 +12,12 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) dom \
     && rm -rf /var/lib/apt/lists/*
 
+## Increase upload limits to 10 MB (aligned with client validation)
+RUN { \
+    echo "upload_max_filesize=10M"; \
+    echo "post_max_size=10M"; \
+} > /usr/local/etc/php/conf.d/uploads.ini
+
 ## Configure Apache to serve from the /var/www/html/public directory.
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!DocumentRoot /var/www/html!DocumentRoot ${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
