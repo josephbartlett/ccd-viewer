@@ -15,6 +15,10 @@ CCD Viewer is a lightweight web application that parses and displays structured 
 See `ROADMAP.md` for planned milestones toward v2.0.0.
 See `CHANGELOG.md` for release notes.
 
+## Screenshot
+
+![CCD Viewer interface](screenshot.png)
+
 ## Quick start (Docker)
 
 ```sh
