@@ -44,6 +44,7 @@ docker run -p 8080:80 \
 ## Sample data
 
 - A small example file is included at `ccd_sample.xml`. Upload it to try the viewer quickly.
+- The sample CCD uses fully fictional names and identifiers for demonstration.
 
 ## Directory structure
 
