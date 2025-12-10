@@ -34,6 +34,10 @@ docker run -p 8080:80 \
   --name ccd-viewer ccd-viewer
 ```
 
+## Security & PHI
+
+**Intended for test and de-identified data; not a production PHI workflow without hardening.**
+
 ## Usage tips
 
 - Left column lists sections; click a section to load its details.
