@@ -24,7 +24,7 @@ class HomeController
     {
         if (!isset($_FILES['ccd_file']) || $_FILES['ccd_file']['error'] !== UPLOAD_ERR_OK) {
             $code = $_FILES['ccd_file']['error'] ?? UPLOAD_ERR_NO_FILE;
-            $error = $this->uploadErrorMessage($code);
+            $error = $this->uploadErrorMessage((int) $code);
             $view = new View('home', ['error' => $error]);
             $view->render();
             return;
@@ -74,5 +74,19 @@ class HomeController
         $fileName = basename($targetPath);
         header('Location: viewer.php?file=' . urlencode($fileName));
         exit;
+    }
+
+    private function uploadErrorMessage(int $code): string
+    {
+        return match ($code) {
+            UPLOAD_ERR_OK => 'Upload succeeded.',
+            UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'File is too large. Maximum allowed is 10 MB.',
+            UPLOAD_ERR_PARTIAL => 'The file was only partially uploaded. Please try again.',
+            UPLOAD_ERR_NO_FILE => 'No file was uploaded. Please choose a file and try again.',
+            UPLOAD_ERR_NO_TMP_DIR => 'Server error: missing a temporary upload directory.',
+            UPLOAD_ERR_CANT_WRITE => 'Server error: failed to write the uploaded file to disk.',
+            UPLOAD_ERR_EXTENSION => 'Server error: a PHP extension stopped the upload.',
+            default => 'Upload failed due to an unknown error.',
+        };
     }
 }

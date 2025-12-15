@@ -20,9 +20,9 @@ Notes for future agents working on this repository.
 - Narrative tab shows the section’s `<text>` content as raw HTML.
 - Data is exposed via `window.CCD_VIEWER_DATA` in `app/Views/viewer.php`.
 
-## Assets and SRI
-- Bootstrap 5.3.2 and FontAwesome 6.4.0 load from CDN with validated SRI hashes in `app/Views/layout.php`.
-- If tracking prevention/firewall blocks CDN, swap to locally hosted assets and remove/update SRI attributes.
+## Assets
+- Bootstrap 5.3.2 and FontAwesome 6.4.0 are served locally (see `public/assets/vendor/`) and referenced in `app/Views/layout.php`.
+- If you switch back to CDN-hosted assets, add/update SRI attributes and handle environments that block CDN traffic.
 
 ## Sample data
 - Keep `ccd_sample.xml` (user-provided example) for quick demos/tests.
@@ -35,4 +35,3 @@ Notes for future agents working on this repository.
 - Keep files ASCII unless a file already uses other encodings.
 - Use `apply_patch` for edits when practical; avoid reverting user changes.
 - `rg` is preferred for searching.
-
